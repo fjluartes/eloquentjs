@@ -57,10 +57,22 @@ function prepend(value, rest) {
 }
 console.log(prepend(-1, list2));
 
-function nth(value, list) {
-  let i;
-  let rst = list;
-  if (rst == null) {
-    
+function nth(list, value) {
+  let arr = [];
+  let val = list.value;
+  arr.push(val);
+  let temp = list.rest;
+  while (temp !== null) {
+    val = temp.value;
+    arr.push(val);
+    temp = temp.rest;
   }
+  let i = arr.indexOf(value);
+  if (i < 0)
+    return undefined;
+  else
+    return i;
 }
+console.log(nth(list2, 2));
+
+// recursive version of nth
