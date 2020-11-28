@@ -25,7 +25,15 @@ console.log(arrayToList([1, 2, 3]));
 
 function listToArray(list) {
   let arr = [];
-  console.log(list);
+  let val = list.value;
+  arr.push(val);
+  let temp = list.rest;
+  while (temp !== null) {
+    val = temp.value;
+    arr.push(val);
+    temp = temp.rest;
+  }
+  return arr;
 }
 
 let list2 = {
@@ -38,3 +46,21 @@ let list2 = {
     }
   }
 };
+console.log(listToArray(list2));
+
+function prepend(value, rest) {
+  let list = {
+    value,
+    rest
+  };
+  return list;
+}
+console.log(prepend(-1, list2));
+
+function nth(value, list) {
+  let i;
+  let rst = list;
+  if (rst == null) {
+    
+  }
+}
